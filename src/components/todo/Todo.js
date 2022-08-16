@@ -1,38 +1,38 @@
 import React, { useRef, useState } from "react";
-import {
-	MdCheckCircle,
-	MdCheckBoxOutlineBlank,
-	MdDelete,
-} from "react-icons/md";
+import { MdCheckCircle, MdCheckCircleOutline, MdDelete } from "react-icons/md";
 
 function Todo({ todo, onCheckDone, onRemove }) {
 	const { id, title, content, checked } = todo;
 	return (
-		<div className="border-2 w-80 h-80">
-			<div>{content}</div>
-			<div className={`content ${checked ? "checked" : ""}`}>
+		<div className="bg-white border-sky-500 rounded-2xl w-80 h-80 shadow-xl text-center">
+			<div className="m-4 text-3xl font-bold">{title}</div>
+			<div className="m-8 text-xl">{content}</div>
+			<div className="">
 				{checked ? (
-					<div className="flex text-red-800 text-xl">
+					<div className="text-3xl mt-36 flex justify-center gap-20">
 						<MdCheckCircle
+							className="text-green-500"
 							onClick={() => {
 								onCheckDone(id);
 							}}
 						/>
 						<MdDelete
-							className="text-orange-50"
+							className="text-red-500"
 							onClick={() => {
 								onRemove(id);
 							}}
 						/>
 					</div>
 				) : (
-					<div>
-						<MdCheckBoxOutlineBlank
+					<div className="text-3xl mt-36 flex justify-center gap-20">
+						<MdCheckCircleOutline
+							className="text-gray-500"
 							onClick={() => {
 								onCheckDone(id);
 							}}
 						/>
 						<MdDelete
+							className="text-red-500"
 							onClick={() => {
 								onRemove(id);
 							}}

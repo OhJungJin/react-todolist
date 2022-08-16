@@ -30,7 +30,7 @@ function Form({ onInsertTodo }) {
 				{/* <div className="flex items-center gap-5	"> */}
 				<label> 제목 </label>
 				<input
-					className="m-4 border-2 hover:border-sky-500 rounded-lg"
+					className="m-4 border-2 outline-2 outline-green-500 hover:border-green-500 rounded-lg"
 					type="text"
 					name="title"
 					onChange={onChange}
@@ -38,14 +38,14 @@ function Form({ onInsertTodo }) {
 				/>
 				<label> 내용 </label>
 				<input
-					className="m-4 border-2 hover:border-sky-500 rounded-lg"
+					className="m-4 border-2 outline-2 outline-green-500 hover:border-green-500 rounded-lg"
 					name="content"
 					onChange={onChange}
 					value={content}
 				/>
 				<button
 					type="submit"
-					className="align-items p-3 ml-auto border-2  bg-gray-50 hover:text-white hover:bg-sky-500 shadow-md rounded-2xl"
+					className="align-items p-3 ml-auto border-2  bg-gray-50 hover:text-white hover:bg-green-500 shadow-md rounded-2xl"
 				>
 					등록하기
 				</button>

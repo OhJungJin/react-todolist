@@ -10,20 +10,20 @@ function TodoList() {
 	const [todos, setTodos] = useState([
 		{
 			id: 1,
-			title: "할일 1",
-			content: "운동",
+			title: "운동",
+			content: "밤 10시에 운동하기",
 			checked: true,
 		},
 		{
 			id: 2,
-			title: "할일 2",
-			content: "공부",
+			title: "공부",
+			content: "javascript 복습하기",
 			checked: true,
 		},
 		{
 			id: 3,
-			title: "할일 3",
-			content: "산책",
+			title: "산책",
+			content: "아침에 일어나서 산책가기",
 			checked: true,
 		},
 	]);
