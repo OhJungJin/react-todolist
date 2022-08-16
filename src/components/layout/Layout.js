@@ -6,8 +6,9 @@ import List from "../list/List";
 const Layout = ({ children }) => {
 	return (
 		<>
-			<div className="w-screen h-screen max-w-[1200px]">
-				<main> {children} </main>
+			<div className="w-screen h-screen max-h-[100%] min-w-[640px] max-w-[1200px] absolute left-1/2 -translate-x-1/2">
+				{" "}
+				{children}{" "}
 			</div>
 		</>
 	);

@@ -1,25 +1,34 @@
 import React, { useState } from "react";
+import Todo from "../todo/Todo";
 
-const List = ({ todos }) => {
-	console.log(todos);
+const List = ({ todos, onCheckDone, onRemove }) => {
 	return (
-		<div className="flex-1 p-5 overflow-auto bg-slate-200">
-			<div>To do 🏃</div>
-			{/* <div>
-				{todos.map(todo) => (
-					<div key={todo.id}>{todo.title}</div>
-				)}
-			</div> */}
-			<div className="m-8 flex flex-wrap gap-3 center">
-				<div className="border-4 border-pink-500	rounded-xl w-80 h-40"> hi </div>
-				<div className="border-4 border-pink-500	rounded-xl w-80 h-40"> hi </div>
-				<div className="border-4 border-pink-500	rounded-xl w-80 h-40"> hi </div>
+		<div className="flex-1 m-4 p-6 h-auto bg-gray-50 shadow-lg">
+			<div className="text-3xl font-bold">To do 🏃</div>
+			<div className="m-8 flex flex-wrap gap-10 justify-start text-center">
+				{todos
+					.filter((todo) => todo.checked == true)
+					.map((todo) => (
+						<Todo
+							todo={todo}
+							key={todo.id}
+							onCheckDone={onCheckDone}
+							onRemove={onRemove}
+						/>
+					))}
 			</div>
-			<div>Done 🧍</div>
-			<div className="m-8 flex flex-wrap gap-3 center">
-				<div className="border-4 border-pink-500	rounded-xl w-80 h-40"> hi </div>
-				<div className="border-4 border-pink-500	rounded-xl w-80 h-40"> hi </div>
-				<div className="border-4 border-pink-500	rounded-xl w-80 h-40"> hi </div>
+			<div className="text-3xl font-bold">Done 🧍</div>
+			<div className="m-8 flex flex-wrap gap-10 justify-start text-center">
+				{todos
+					.filter((todo) => todo.checked == false)
+					.map((todo) => (
+						<Todo
+							todo={todo}
+							key={todo.id}
+							onCheckDone={onCheckDone}
+							onRemove={onRemove}
+						/>
+					))}
 			</div>
 		</div>
 	);

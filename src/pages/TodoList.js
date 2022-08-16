@@ -4,6 +4,8 @@ import Header from "../components/header/Header";
 import Form from "../components/form/Form";
 import List from "../components/list/List";
 
+let nextId = 4;
+
 function TodoList() {
 	const [todos, setTodos] = useState([
 		{
@@ -25,13 +27,44 @@ function TodoList() {
 			checked: true,
 		},
 	]);
-	// console.log(todos);
+
+	const onRemove = (id) => {
+		setTodos((todos) => todos.filter((todo) => todo.id !== id));
+	};
+
+	const onInsertTodo = ({ ...values }) => {
+		var title = values.title;
+		var content = values.content;
+
+		if (title == "" || content == "") {
+			return alert("빈칸을 입력해주세요.");
+		} else {
+			const todo = {
+				id: nextId,
+				title,
+				content,
+				checked: true,
+			};
+			setTodos((todos) => todos.concat(todo));
+			nextId++;
+		}
+		console.log(values);
+	};
+
+	const onCheckDone = (id) => {
+		setTodos((todos) =>
+			todos.map((todo) =>
+				todo.id === id ? { ...todo, checked: !todo.checked } : todo
+			)
+		);
+	};
+
 	return (
 		<>
 			<Layout>
 				<Header />
-				<Form />
-				<List todos={todos} />
+				<Form onInsertTodo={onInsertTodo} />
+				<List todos={todos} onCheckDone={onCheckDone} onRemove={onRemove} />
 			</Layout>
 		</>
 	);

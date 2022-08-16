@@ -1,32 +1,47 @@
 import React, { useRef, useState } from "react";
+import {
+	MdCheckCircle,
+	MdCheckBoxOutlineBlank,
+	MdDelete,
+} from "react-icons/md";
 
-function Todo() {
-	const no = useRef(1);
-	const [todo, setTodo] = useState([]);
-
-	const onDelete = (id) => {
-		setTodo(todo.filter((todo) => todo.id !== id));
-	};
-
-	const onToggle = (id) => {
-		setTodo(
-			todo.map((item) =>
-				item.id === id ? { ...item, check: !item.check } : item
-			)
-		);
-	};
-
-	const onAdd = (text) => {
-		setTodo([
-			...todo,
-			{
-				id: no.current++,
-				text,
-				check: false,
-			},
-		]);
-	};
-	return <div></div>;
+function Todo({ todo, onCheckDone, onRemove }) {
+	const { id, title, content, checked } = todo;
+	return (
+		<div className="border-2 w-80 h-80">
+			<div>{content}</div>
+			<div className={`content ${checked ? "checked" : ""}`}>
+				{checked ? (
+					<div className="flex text-red-800 text-xl">
+						<MdCheckCircle
+							onClick={() => {
+								onCheckDone(id);
+							}}
+						/>
+						<MdDelete
+							className="text-orange-50"
+							onClick={() => {
+								onRemove(id);
+							}}
+						/>
+					</div>
+				) : (
+					<div>
+						<MdCheckBoxOutlineBlank
+							onClick={() => {
+								onCheckDone(id);
+							}}
+						/>
+						<MdDelete
+							onClick={() => {
+								onRemove(id);
+							}}
+						/>
+					</div>
+				)}
+			</div>
+		</div>
+	);
 }
 
 export default Todo;
