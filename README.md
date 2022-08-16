@@ -1,3 +1,3 @@
 # React TodoList
 
-![image](https://user-images.githubusercontent.com/84957136/184891681-cb4c56fd-216a-4c47-a330-496e488dda62.png)
+https://user-images.githubusercontent.com/84957136/184891529-bde5b989-cf59-44f6-a7b0-f2f3a71e6a77.gif
