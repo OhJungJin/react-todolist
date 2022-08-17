@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Todo from "../todo/Todo";
 
 const List = ({ todos, onCheckDone, onRemove }) => {

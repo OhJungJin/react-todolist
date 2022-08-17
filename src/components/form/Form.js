@@ -22,6 +22,10 @@ function Form({ onInsertTodo }) {
 	const onSubmit = (e) => {
 		e.preventDefault();
 		onInsertTodo(values);
+		setValues({
+			title: "",
+			content: "",
+		});
 	};
 
 	return (
