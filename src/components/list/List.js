@@ -1,7 +1,7 @@
 import React from "react";
 import Todo from "../todo/Todo";
 
-const List = ({ todos, onCheckDone, onRemove }) => {
+const List = ({ todos, onRemove, handleCompleteClick }) => {
 	return (
 		<div className="flex-1 m-4 p-6 h-auto bg-gray-50 shadow-lg">
 			<div className="text-3xl font-bold">To do 🏃</div>
@@ -12,7 +12,7 @@ const List = ({ todos, onCheckDone, onRemove }) => {
 						<Todo
 							todo={todo}
 							key={todo.id}
-							onCheckDone={onCheckDone}
+							handleCompleteClick={handleCompleteClick}
 							onRemove={onRemove}
 						/>
 					))}
@@ -25,7 +25,7 @@ const List = ({ todos, onCheckDone, onRemove }) => {
 						<Todo
 							todo={todo}
 							key={todo.id}
-							onCheckDone={onCheckDone}
+							handleCompleteClick={handleCompleteClick}
 							onRemove={onRemove}
 						/>
 					))}

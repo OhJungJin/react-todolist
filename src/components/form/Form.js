@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTodo } from "../../redux/todoSlice";
 
 function Form({ onInsertTodo }) {
 	const [values, setValues] = useState({
 		title: "",
 		content: "",
 	});
-
-	// const dispatch = useDispatch();
 
 	const { title, content } = values;
 
@@ -25,11 +21,6 @@ function Form({ onInsertTodo }) {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		// dispatch(
-		// 	addTodo({
-		// 		title: value,
-		// 	})
-		// );
 		onInsertTodo(values);
 		setValues({
 			title: "",

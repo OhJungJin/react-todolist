@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { MdCheckCircle, MdCheckCircleOutline, MdDelete } from "react-icons/md";
 
-function Todo({ todo, onCheckDone, onRemove }) {
+function Todo({ todo, onRemove, handleCompleteClick }) {
 	const { id, title, content, checked } = todo;
 	return (
 		<div className="bg-white rounded-2xl w-80 h-80 shadow-xl text-center">
@@ -13,7 +13,7 @@ function Todo({ todo, onCheckDone, onRemove }) {
 						<MdCheckCircle
 							className="text-green-500"
 							onClick={() => {
-								onCheckDone(id);
+								handleCompleteClick(todo);
 							}}
 						/>
 						<MdDelete
@@ -28,7 +28,7 @@ function Todo({ todo, onCheckDone, onRemove }) {
 						<MdCheckCircleOutline
 							className="text-gray-500"
 							onClick={() => {
-								onCheckDone(id);
+								handleCompleteClick(todo);
 							}}
 						/>
 						<MdDelete
