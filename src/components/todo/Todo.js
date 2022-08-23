@@ -2,7 +2,7 @@ import React from "react";
 import { MdCheckCircle, MdCheckCircleOutline, MdDelete } from "react-icons/md";
 
 function Todo({ todo, onRemove, handleCompleteClick }) {
-	const { id, title, content, checked } = todo;
+	const { title, content, checked } = todo;
 	return (
 		<div className="bg-white rounded-2xl w-80 h-80 shadow-xl text-center">
 			<div className="m-4 text-3xl font-bold">{title}</div>
@@ -19,7 +19,7 @@ function Todo({ todo, onRemove, handleCompleteClick }) {
 						<MdDelete
 							className="text-red-500"
 							onClick={() => {
-								onRemove(id);
+								onRemove(todo);
 							}}
 						/>
 					</div>
@@ -34,7 +34,7 @@ function Todo({ todo, onRemove, handleCompleteClick }) {
 						<MdDelete
 							className="text-red-500"
 							onClick={() => {
-								onRemove(id);
+								onRemove(todo);
 							}}
 						/>
 					</div>

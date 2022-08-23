@@ -5,7 +5,7 @@ import Form from "../components/form/Form";
 import List from "../components/list/List";
 
 import { useDispatch } from "react-redux";
-import { addTodo, toggleComplete } from "../redux/todoSlice";
+import { addTodo, toggleComplete, removeTodo } from "../redux/todoSlice";
 import { useSelector } from "react-redux";
 
 let nextId = 4;
@@ -14,8 +14,8 @@ function TodoList() {
 	const dispatch = useDispatch();
 	const todos = useSelector((state) => state.todos);
 
-	const onRemove = (id) => {
-		todos((todos) => todos.filter((todo) => todo.id !== id));
+	const onRemove = (todo) => {
+		dispatch(removeTodo({ id: todo.id }));
 	};
 
 	const onInsertTodo = ({ ...values }) => {
