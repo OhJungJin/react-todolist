@@ -14,10 +14,6 @@ function TodoList() {
 	const dispatch = useDispatch();
 	const todos = useSelector((state) => state.todos);
 
-	const onRemove = (todo) => {
-		dispatch(removeTodo({ id: todo.id }));
-	};
-
 	const onInsertTodo = ({ ...values }) => {
 		var title = values.title;
 		var content = values.content;
@@ -35,6 +31,10 @@ function TodoList() {
 			);
 			nextId++;
 		}
+	};
+
+	const onRemove = (todo) => {
+		dispatch(removeTodo({ id: todo.id }));
 	};
 
 	const handleCompleteClick = (todo) => {
