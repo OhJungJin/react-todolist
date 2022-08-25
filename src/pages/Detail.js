@@ -28,15 +28,20 @@ function Detail() {
 	const navigate = useNavigate();
 	const todos = useSelector((state) => state.todos);
 
+	const todoList = todos.find((todo) => {
+		return todo.id === +id;
+	});
+
 	function moveHome() {
 		navigate("/");
 	}
+
 	return (
 		<Layout>
 			<DetailWrapper>
 				<DetailContent>
-					<div className="font-bold">{todos[id - 1].title}</div>
-					<div className="text-2xl">{todos[id - 1].content}</div>
+					<div className="font-bold">{todoList.title}</div>
+					<div className="text-2xl">{todoList.content}</div>
 					<button
 						className="border-2 p-2 border-gray-200 rounded-xl mt-36 text-lg shadow-xl hover:bg-green-500 hover:text-white"
 						onClick={moveHome}

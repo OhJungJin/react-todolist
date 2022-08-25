@@ -31,6 +31,7 @@ const todoSlice = createSlice({
 				checked: action.payload.checked,
 			};
 			state.push(newTodo);
+			console.log(action);
 		},
 		toggleComplete: (state, action) => {
 			return state.map((todo) =>
